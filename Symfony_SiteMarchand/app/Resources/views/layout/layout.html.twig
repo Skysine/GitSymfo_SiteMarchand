@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Mon animalerie Chiens & Chats{% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="{{ path('produits') }}">Mon animalerie Chiens & Chats</a>
+                    <div class="nav-collapse collapse">
+                        {% render(controller('EcommerceBundle:Produits:recherche')) %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+        <footer id="footer" class="vspace20">
+            <div class="container">
+                <div class="row">
+                    <div id="footer_dv" class="span4 offset1">
+                        <h4>Informations</h4>
+                        <ul class="nav nav-stacked">
+                            {% render(controller('PagesBundle:Pages:menu')) %}
+                            <li><a href="https://fr.wikipedia.org/wiki/">&copy; Infos issues de Wikipédia</a></li>
+                        </ul>
+                    </div> 
+
+                    <div id="footer_dv" class="span4">
+                        <h4>Notre élevage</h4>
+                        <p><i class="icon-map-marker"></i>&nbsp;{{ adresse }}</p>
+                    </div>
+
+                    <div id="footer_dv" class="span2">
+                        <h4>Nous contacter</h4>
+                        <p><i class="icon-phone"></i>&nbsp;Tel: {{ telephone }}</p>
+                        <p><i class="icon-print"></i>&nbsp;Fax: {{ fax }}</p>
+                        <p><i class="icon-laptop"></i>&nbsp;Mail: <a href="mailto:{{ mail }}">{{ mail }}</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>	
+        <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+        <script src="{{ asset('../js/bootstrap.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
