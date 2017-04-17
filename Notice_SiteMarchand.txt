@@ -1,0 +1,27 @@
+Création d'un site Marchand avec Symfony2, à l'aide du système des bundles.
+
+> Nous avons choisi de partir sur une idée de site de vente de chiens et chats. 
+
+> L'interface graphique a été echaffaudée grâce à plusieurs bibliothèques css, dont principalement bootstrap pour un meilleur confort visuel.
+
+> Concernant la partie des comptes utilisateurs, nous avons utilisé le bundle FOSUserBundle. Ce bundle a été placé dans la partie app du projet Symfony, étant donné que c'est sur lui que se base l'application. Il gère l'inscription, les mots de passes, les emails.
+
+> Dans le même dossier app/Resources, il y a également la structure template de base du site. Notamment avec l'header et le footer dans le fichier layout.  
+
+> Le corps du site et ses fonctionnalités sont répartis en trois bundle :
+	- EcommerceBundle : comme son nom l'indique, ce bundle concerne la partie e-commerce de notre site, avec tout ce qui se rapporte aux produits, au panier (ajout de produit au panier, livraison, validation du panier), au système de recherche de produit, ainsi qu'aux catégories relatives aux produits.
+	- PagesBundle : c'est un bundle qui gère différents morceaux de code ou lignes répétables sur nos pages, ainsi que dans l'interface administrateur. Ainsi cette partie comprend les conditions générales de vente et les mentions légales, morceaux de texte appartenant au footer.
+	- UtilisateursBundle : plus légers que les autres, ce bundle ajoute une fine couche sur la gestion du compte utilisateur et sur la génération de facture imatérielle et format PDF. 
+
+> Afin de fabriquer la base de donnée de ce projet, il existe des fichiers qui décrivent les données : "nomdufichierData.php" (DataFixtures/ORM) et un fichier php associé dans le dossier Entity de chaque bundle. 
+Plusieurs commandes ont été nécessaire pour créer la base de données et qu'il faut effectuer lorsque le projet est copié sur un autre teminal :
+	- création de la base php app/console doctrine:database:create
+	- création des éléments à l'intérieur de la base php app/console doctrine:schema:create
+	- chargement des données dans les tables php app/console doctrine:database:create
+
+
+Le projet nécessite encore quelques ajustements : 
+	- le panier affiche le nombre de type de produits différents sur la page principale et non le nombre total de produit tout condondu.
+	- il est possible de générer une facture PDF, mais celle-ci n'apparait pas. 
+	On peut la visualiser qu'en simulant un téléchargement via l'icone de la page d'affichage du PDF.
+
