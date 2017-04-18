@@ -1,4 +1,10 @@
-Création d'un site Marchand avec Symfony2, à l'aide du système des bundles.
+Hugo Pecqueur
+Vincent Rauch
+Leslie Maestro
+
+################################################################################
+####   Création d'un site Marchand avec Symfony2, à l'aide du système des bundles.    #####
+################################################################################
 
 > Nous avons choisi de partir sur une idée de site de vente de chiens et chats. 
 
@@ -22,6 +28,6 @@ Plusieurs commandes ont été nécessaire pour créer la base de données et qu'il fa
 
 Le projet nécessite encore quelques ajustements : 
 	- le panier affiche le nombre de type de produits différents sur la page principale et non le nombre total de produit tout condondu.
-	- il est possible de générer une facture PDF, mais celle-ci n'apparait pas. 
-	On peut la visualiser qu'en simulant un téléchargement via l'icone de la page d'affichage du PDF.
+	- il est possible de générer une facture PDF, mais celle-ci n'apparait pas directement. 
+	Il est possible de la visualiser en la téléchargeant via l'icone de téléchargement de la page internet d'affichage du PDF.
 
